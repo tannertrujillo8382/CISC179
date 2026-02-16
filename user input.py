@@ -53,8 +53,8 @@ print("Shortest distance between cars:", distance_between)
 # 4. Troubleshooting Variable Names
 # hello = "hello" works
 # _var = 100 works
-# !var_1 = 200 does NOT work, variable names cannot start with !
-# print = "print me" works but not good because it replaces Python's print function
+# !var_1 = 200 does not work, variable names cannot start with !
+# print = "print me" works, but not good because it replaces Python's print function
 # False = 0 does NOT work, reserved keywords cannot be used as variable names
 
 
