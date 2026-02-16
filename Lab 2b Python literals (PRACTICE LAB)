@@ -27,5 +27,43 @@
 #14.0
 #print(2 * 3 % 5)
 # 1 
-print((2 % -4), (2 % 4), (2 ** 3 ** 2))
+#print((2 % -4), (2 % 4), (2 ** 3 ** 2))
 # -2 2 512
+
+
+# Data type
+# What will the output be without using Python? Aim for 80% accuracy
+
+type("Hello")
+# <class 'str'>
+#type(1+"2")
+#error? You can't add an integer and a string (unless i missed something)
+type(1.)
+# <class 'float'>
+type('A')
+# <class 'str'>
+type(500)
+# <class 'int'>
+type(True)
+# <class 'bool'>
+type("False")
+# <class 'str'>
+
+# a) Write your arithmetic expression that uses at least one operator from each group and prove the operator's precedence. For example 5 * 25 % 13 + 100 / -2 * 13 // 2 ** 3
+
+# b) What will the output be without using Python after writing your arithmetic expression? Use the table below for your reference.
+
+# c) Please verify using Python to determine if you have done it correctly.
+
+# 3 + 2 ** 2 * 4 // 5 % 3 - 1
+
+# Step-by-step reasoning:
+# 2 ** 2 = 4
+# 4 * 4 = 16
+# 16 // 5 = 3
+# 3 % 3 = 0
+# 3 + 0 - 1 = 2
+
+# Final output - 2
+
+# I struggled with identifying data types without using Python, especially distinguishing between strings, Booleans, and numbers, and predicting errors like adding an integer to a string.
