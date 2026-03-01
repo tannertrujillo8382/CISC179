@@ -1,6 +1,9 @@
+
+```python
+
 # CISC179: Practice Lab – Dictionaries
 
-## 1. Creating and accessing dictionaries
+# 1. Creating and accessing dictionaries
 
 # 1a) Create a dictionary of 10 Marvel characters and their attributes
 
