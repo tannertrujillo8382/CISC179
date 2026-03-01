@@ -1,8 +1,10 @@
-# Python Tuples Assignment
+# CISC179: Practice Lab – Tuples
 
-## 1a) Take five inputs from a user and save it in a tuple called `my_tuple`
+## 1. Exercising Tuples
 
 ```python
+# 1a) Take five inputs from a user and save it in a tuple called my_tuple
+
 # Create a temporary list to store inputs
 temp_list = []
 
@@ -17,29 +19,46 @@ my_tuple = tuple(temp_list)
 # Print the tuple
 print("Your tuple is:", my_tuple)
 
-# Original tuple
-my_tuple = (1,2,3,4,3,2,1,2,3,5,4,3,2,1)
+# 1b) How do you assign a single element in a tuple?
 
-# Concatenate tuple with itself
-my_tuple_d = my_tuple + my_tuple
+# Tuples are immutable, so you cannot change a single element after it is created
+x = (1,2,3,4)
+# x[1] = 5        # Not allowed
+# x.append(1)     # Not allowed
+# del x[2]        # Not allowed
 
-# Print both
-print("Original my_tuple:", my_tuple)
-print("Doubled my_tuple_d:", my_tuple_d)
+# 1c) Count the repeated integers in a tuple
 
-# Proof they are different by comparing lengths
-print("Length of original:", len(my_tuple))
-print("Length of doubled:", len(my_tuple_d))
+count_tuple = (1,2,3,4,3,2,1,2,3,5,4,3,2,1)
 
-#Original length: 14
-#Doubled length: 28
-#The tuples are different because concatenation created a new tuple, original stays unchanged.
+print("Count of 1:", count_tuple.count(1))
+print("Count of 2:", count_tuple.count(2))
+print("Count of 3:", count_tuple.count(3))
+print("Count of 4:", count_tuple.count(4))
+print("Count of 5:", count_tuple.count(5))
 
-#Why these operations aren’t legal for a tuple
+# 1d) Concatenate the tuple with itself and prove they are different
 
-#Tuples are fixed once created, unlike lists which are mutable.
+doubled_tuple = count_tuple + count_tuple
 
-#2a) What is the data type of each variable?
+print("Original tuple:", count_tuple)
+print("Doubled tuple:", doubled_tuple)
+
+# Proof by length
+print("Length of original:", len(count_tuple))
+print("Length of doubled:", len(doubled_tuple))
+
+# 1e) Explain why the following operations aren’t legal for tuples
+
+x = (1,2,3,4)
+# x.append(1)   # Not allowed
+# x[1] = "hello" # Not allowed
+# del x[2]      # Not allowed
+
+# Explanation: Tuples are immutable; elements cannot be added, modified, or deleted
+
+# 2a) Data type of each variable
+
 (one, two, three, four) = (1, 2, 3, 4)
 
 print(type(one))
@@ -47,62 +66,55 @@ print(type(two))
 print(type(three))
 print(type(four))
 
-#Extended unpacking with * operator
+# 2b) Extended unpacking with * operator
 
 x = (1, 2, 3, 4)
 a, b, *c = x
-print(a, b, c)
+print(a, b, c)  # Output: 1 2 [3, 4]
 
-#What will be the result of a, *b, c = x?
+# 2c) Result of a, *b, c = x
 
 x = (1, 2, 3, 4)
 a, *b, c = x
-print(a, b, c)
+print(a, b, c)  # Output: 1 [2, 3] 4
 
-#Extended unpacking with * always returns a list for the “absorbing” variable.
+# 3. Memory Management
 
-### 2a) What is the data type of each variable?
-(one, two, three, four) = (1, 2, 3, 4)
+my_x = [100, 200, 300, 400]   # List
+my_y = (200, 300, 400, 500)   # Tuple
 
-print(type(one))
-print(type(two))
-print(type(three))
-print(type(four))
+# Lists (my_x):
+# - Mutable: elements can be changed after creation.
+# - Each element has its own memory address.
+# - If we change one element, Python assigns a new address to that element, but the other elements usually stay the same.
+# - Example: my_x[0] = 999 would change only the first element's address.
 
-#Extended unpacking with * operator
-x = (1, 2, 3, 4)
-a, b, *c = x
+# Tuples (my_y):
+# - Immutable: elements cannot change.
+# - Python often keeps the same memory address for each element because nothing will change.
+# - Tuples are slightly more memory-efficient than lists.
 
-print(a, b, c)
+# Optional demo to see memory addresses in Python
+print("List element addresses:")
+for i, val in enumerate(my_x):
+    print(f"my_x[{i}] -> {id(val)}")
 
-#What will be the result of a, *b, c = x?
-x = (1, 2, 3, 4)
-a, *b, c = x
+print("\nTuple element addresses:")
+for i, val in enumerate(my_y):
+    print(f"my_y[{i}] -> {id(val)}")
 
-print(a, b, c)
+# Summary table in comments:
+# Index | my_x (list)                  | my_y (tuple)
+# 0     | Address can change           | Fixed address
+# 1     | Address can change           | Fixed address
+# 2     | Address can change           | Fixed address
+# 3     | Address can change           | Fixed address
 
-#Memory Management
-my_x = [100, 200, 300, 400]
-my_y = (200, 300, 400, 500)
 
-#Lists (my_x):
+# 4. Challenges
 
-#Lists are mutable, which means we can change the values after creating them.
-
-#Each element of the list is stored at its own memory address.
-
-#If we change one element, Python gives that element a new memory address, but the other elements usually stay the same.
-
-#Example: If we do my_x[0] = 999, only the first element’s address changes.
-
-#Tuples (my_y):
-
-#Tuples are immutable, so once we create them, we cannot change any element.
-
-#Python often keeps the same memory address for each element in the tuple because nothing will change.
-
-#This makes tuples slightly more efficient in memory than lists.
-
-#challenges
-
-#Converting user input into a tuple for the first exercise was a little confusing, because I had to use a temporary list before making the tuple.
+# - Converting user input into a tuple was tricky because I had to use a temporary list first.
+# - Understanding tuple immutability took some thought; I had to remember that elements cannot be changed, added, or deleted.
+# - Extended unpacking with the * operator was confusing at first; I had to remember that it always returns a list for the “absorbing” variable.
+# - Remembering memory differences between lists and tuples was slightly challenging.
+# - Practicing counting repeated elements helped reinforce how tuples store data and how methods like .count() work.
