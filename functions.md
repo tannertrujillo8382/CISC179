@@ -1,3 +1,5 @@
+'''python
+
 # CISC179: Practice Lab – Functions
 
 ## 1. Creating and using functions
